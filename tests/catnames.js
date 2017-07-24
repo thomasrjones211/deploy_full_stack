@@ -15,7 +15,7 @@ describe('catnames.api', () => {
       console.log(res.body);
 
 
-      res.body[0].name.should.equal.a['string'];
+      res.body[0].name.should.be.a['string'];
       done();
 
     });
