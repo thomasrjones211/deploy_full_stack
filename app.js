@@ -31,6 +31,30 @@ app.get('/catnames', function(req, res, next) {
   });
 })
 
+app.post('/catnames', validateCatName, function(req, res, next) {
+  db('catnames').insert(req.body)
+  .then(function(result){
+    res.send(result);
+  })
+  .catch(function(err) {
+    console.log(err);
+    next(err);
+  });
+});
+
+function validateCatName(req, res, next) {
+  if(!req.body.name){
+    return next(new Error('name is missing'));
+  }
+
+  const number = Number(req.body.name);
+  if(!isNaN(number)) {
+    return next(new Error('put in a string'));
+  }
+
+  next();
+}
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
