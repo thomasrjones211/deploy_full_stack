@@ -7,7 +7,9 @@
 	</head>
 	<body>
 		<div ng-controller="Acontroller as ctrl">
-			<p>{{ctrl.something}}</p>
+			<div ng-repeat="cat in ctrl.catNames">
+				<p>{{cat.name}}</p>
+			</div>
 		</div>
 		<script src="/app.js"></script>
 	</body>
