@@ -12,7 +12,7 @@ describe('catnames.api', () => {
     .expect(200)
     .end((err, res) => {
       if(err) return done(err);
-      console.log(res.body);
+      //console.log(res.body);
 
 
       res.body[0].name.should.be.a['string'];
