@@ -23,12 +23,10 @@ describe('catnames.api', () => {
   it('should post a cat name to db', (done) => {
     api.post('/catnames')
     .send({name: 'pickle'})
-    .expect(200)
+    .expect(200, done);
     //if don't care about err, then could use .expect(200, done);
-    .end((err, res) => {
-      if(err) return done(err);
-      console.log(res.body);
-
-  })
-
+    // .end((err, res) => {
+    //   if(err) return done(err);
+    //   console.log(res.body);
+  });
 });
